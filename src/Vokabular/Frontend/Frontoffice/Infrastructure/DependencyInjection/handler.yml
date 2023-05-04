@@ -1,0 +1,29 @@
+services:
+
+  frontend.query.setup.findWordsFromSetup:
+    class: App\Vokabular\Frontend\Frontoffice\Application\Query\SetUp\FindWordsFromSetup
+    arguments:
+      - '@frontend.CurlQueryConnect'
+    tags: { name: internal.query_handler, bus: command.bus }
+
+  frontend.query.word.getNextWord:
+    class: App\Vokabular\Frontend\Frontoffice\Application\Query\Training\GetNextWord
+    tags: { name: internal.query_handler, bus: command.bus }
+
+### Quiz
+  frontend.query.quiz.returnResultOptionQuiz:
+    class: App\Vokabular\Frontend\Frontoffice\Application\Query\Quiz\ReturnResultOptionQuiz
+    tags: { name: internal.query_handler, bus: command.bus }
+
+
+  frontend.query.quiz.startQuiz:
+    class: App\Vokabular\Frontend\Frontoffice\Application\Query\Quiz\StartQuiz
+    tags: { name: internal.query_handler, bus: command.bus }
+
+  frontend.query.quiz.nextWordQuiz:
+    class: App\Vokabular\Frontend\Frontoffice\Application\Query\Quiz\NextWordQuiz
+    tags: { name: internal.query_handler, bus: command.bus }
+
+  frontend.query.training.startTrainingFromQuiz:
+    class: App\Vokabular\Frontend\Frontoffice\Application\Query\Training\StartTrainingFromQuiz
+    tags: { name: internal.query_handler, bus: command.bus }

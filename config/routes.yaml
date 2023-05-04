@@ -1,0 +1,8 @@
+api:
+  resource: ../src/Vokabular/Api/Infrastructure/Routes/routes.yml
+
+frontend.backoffice:
+  resource: ../src/Vokabular/Frontend/Backoffice/Infrastructure/Routes/routes.yml
+
+frontend.frontoffice:
+  resource: ../src/Vokabular/Frontend/Frontoffice/Infrastructure/Routes/routes.yml

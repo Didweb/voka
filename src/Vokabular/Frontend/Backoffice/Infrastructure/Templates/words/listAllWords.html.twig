@@ -1,0 +1,73 @@
+{% extends '@frontend_office/base-admin.html.twig' %}
+
+{% block body %}
+    <div class="text-center">
+        {% for key, value  in app.session.flashbag.all %}
+            <div class="card border-left-{{  key }} shadow h-100 py-2 mb-3" >
+                <div class="card-body">
+                    {{  value[0] | raw }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Modal -->
+    {% include '@frontend_office/words/deleteModal.html.twig' %}
+
+    <!-- Modal -->
+    {% include '@frontend_office/words/editModal.html.twig' with { 'fromEdit': formEdit  } %}
+
+    <!-- Modal -->
+    {% include '@frontend_office/words/changeImageModal.html.twig'  %}
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Image</th>
+            <th scope="col">Level</th>
+            <th scope="col">Created At</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {%  for word in allWords %}
+            <tr>
+                <td><span class="text-{{ word['gender'] }}">{{ word['gender'] }} {{ word['word'] }}</span></td>
+                <td>{{ word['category']['name'] | default("-") | raw }}</td>
+                <td>
+                    <img width="100" src="{{ asset( 'assets/front/images/'~word['image']) }}" />
+                    <button data-name="{{ word['image'] }}"
+                            data-id="{{ word['id'] }}"
+                            data-toggle="modal"
+                            data-target="#modalChangeImage"
+                            class="btn btn-warning modalchangeimage-word">Change image</button>
+                </td>
+                <td>{{ word['level'] }}  </td>
+                <td>{{ word['createdAt']['date']|format_datetime('short', 'none', locale='de') }}</td>
+                <td>
+                    <button data-path="{{ url('frontend.backoffice.deleteWord', {'id' : word['id'], 'image': word['image'] }) }}"
+                            data-name="{{ word['word'] }}"
+                            data-toggle="modal" data-target="#modalDelete"
+                            class="btn btn-danger modaldel-word">Delete</button>
+
+                    <button  data-toggle="modal" data-target="#modalEdit"
+                             class="btn btn-primary  float-right modaledi-word"
+                             data-id="{{ word['id'] }}"
+                             data-createdat="{{ word['createdAt']['date'] }}"
+                             data-word="{{ word['word'] }}"
+                             data-gender="{{ word['gender'] }}"
+                             data-level="{{ word['level'] }}"
+                             data-category="{{ word['category'] | json_encode }}"
+                            >Edit</button>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    {% set pathNextPage = url('frontend.backoffice.listAllWords') %}
+    {% include '@frontend_office/pagination.html.twig'  %}
+{% endblock %}

@@ -1,0 +1,25 @@
+App\Vokabular\Api\Domain\Model\Words\Word:
+    type: entity
+    table: word
+    indexes:
+      word_index:
+        columns: [ word ]
+    id:
+      id:
+        type: word_id
+
+    fields:
+      word: { type: string, nullable: false, length: 90, unique: true }
+      image: { type: string, nullable: true, length: 150 }
+      gender: { type: gender, nullable: true, length: 3 }
+      level: { type: level, nullable: true, length: 2 }
+      createdAt: { type: datetime, nullable: false }
+      updatedAt: { type: datetime, nullable: true }
+
+    manyToOne:
+      category:
+        targetEntity: App\Vokabular\Api\Domain\Model\Categories\Category
+        inversedBy: words
+        joinColumn:
+          name: category_id
+          referencedColumn: id

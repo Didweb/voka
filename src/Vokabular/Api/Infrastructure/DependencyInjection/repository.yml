@@ -1,0 +1,11 @@
+services:
+  api.repository.doctrineCategoryRepository:
+    class: App\Vokabular\Api\Infrastructure\Persistence\Doctrine\Repository\DoctrineCategoryRepository
+    arguments:
+      - '@doctrine.orm.default_entity_manager'
+      -
+  api.repository.doctrineWordRepository:
+    class: App\Vokabular\Api\Infrastructure\Persistence\Doctrine\Repository\DoctrineWordRepository
+    arguments:
+      - '@doctrine.orm.default_entity_manager'
+      - '@knp_paginator'

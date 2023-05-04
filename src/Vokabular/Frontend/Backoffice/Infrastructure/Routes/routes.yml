@@ -1,0 +1,47 @@
+## Category
+
+frontend.backoffice.createCategory:
+  path: /admin/create-category
+  controller: 'backoffice.controller.categories.createCategory'
+
+frontend.backoffice.deleteCategory:
+  path: /admin/delete-category/{id}
+  controller: 'backoffice.controller.categories.deleteCategory'
+
+frontend.backoffice.editCategory:
+  path: /admin/edit-category
+  controller: 'backoffice.controller.categories.editCategory'
+
+
+frontend.backoffice.listAllCategories:
+  path: /admin/all-categories
+  controller: 'backoffice.controller.categories.listAllCategories'
+
+## Word
+frontend.backoffice.createWord:
+  path: /admin/create-word
+  controller: 'backoffice.controller.words.createWord'
+
+frontend.backoffice.deleteWord:
+  path: /admin/delete-word/{id}
+  controller: 'backoffice.controller.words.deleteWord'
+
+frontend.backoffice.listAllWords:
+  path: /admin/all-words
+  controller: 'backoffice.controller.words.listAllWords'
+
+frontend.backoffice.editWord:
+  path: /admin/edit-word
+  controller: 'backoffice.controller.words.editWord'
+
+frontend.backoffice.changeImageWord:
+  path: /admin/change-image/word
+  controller: 'backoffice.controller.words.changeImageWord'
+
+## Others
+frontend.backoffice.adminIndex:
+  path: /admin/home
+  controller: 'backoffice.controller.adminIndex'
+
+logout:
+  path: /logout

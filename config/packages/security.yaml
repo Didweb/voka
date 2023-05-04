@@ -1,0 +1,31 @@
+security:
+  providers:
+      in_memory:
+          memory:
+            users:
+              edu:
+                password: '$2y$12$GnZToWu/70Pk7ZV4TChB8e.Jf.0tS4vqQxA6Qv4nuEI.UB8VDktha'
+                roles: 'ROLE_ADMIN'
+              julian:
+                password: '$2y$12$evU/IWSoIMXCd0SBzY/C3OnL7IwIpHyOlMdpcj.jeLofNancbfyMG'
+                roles: 'ROLE_ADMIN'
+
+  firewalls:
+      dev:
+          pattern: ^/(_(profiler|wdt)|css|images|js)/
+          security: false
+
+      default:
+          anonymous: ~
+          http_basic: ~
+          logout:
+            path: /logout
+            target: /
+
+  access_control:
+      - { path: ^/admin, roles: ROLE_ADMIN }
+
+  encoders:
+    Symfony\Component\Security\Core\User\User:
+        algorithm: bcrypt
+        cost: 12

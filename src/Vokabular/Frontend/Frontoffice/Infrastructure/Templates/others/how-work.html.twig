@@ -1,0 +1,79 @@
+{% extends '@frontend_front/base.html.twig' %}
+{% block title %}Voka - Wie funktioniert es - Vokabeltrainer deutsch{% endblock %}
+{% block body %}
+    <header class="py-5">
+        <div class="container px-5 pb-5">
+            <div class="row gx-5 ">
+                <div class="col-xxl-6">
+                    <!-- Header text content-->
+                    <div class="text-center text-xxl-start">
+                        <div class="badge bg-gradient-primary-to-secondary text-white mb-4">
+                            <div class="text-uppercase">Deutsch &middot; Trainer &middot; Vokabular</div></div>
+                        <div class="fs-3 fw-light text-muted">Vokabeltrainer deutsch</div>
+                        <h1 class="display-3 fw-bolder mb-5">
+                            <span class="text-gradient d-inline">Wie funktioniert es</span></h1>
+
+                    </div>
+                </div>
+                <div class="col-xxl-6">
+                    <p>
+                        La aplicación tiene 2 partes una de <span class="fw-bolder text-gradient">Entrenamiento</span>
+                        y otra de <span class="fw-bolder text-gradient">Examen</span>.
+                    </p>
+                    <p>
+                        <span class="fw-bolder text-gradient">Entrenamiento:</span><br>
+                    Se inicia con un formulario donde podremos seleccionar el número de palabras para entrenar
+                        y opcionalmente tanto el nivel y como el tema.
+                    </p>
+                    <p>
+                    En este punto podemos ir al Entrenamiento o bien directamente al Examen.
+                    </p>
+                    <p>
+                    En el entrenamiento se mostraran de forma aleatoria las palabras junto al género,  una imagen y el color representativo del género.
+                    </p>
+                    <p>
+                    El ciclo es infinito,  hasta que tu decides ir al Examen, pulsando con el botón inferior para ir al Examen.
+                    </p>
+                    <p>
+                     <span class="fw-bolder text-gradient">Examen:</span><br>
+                    Saldrán las mismas palabras seleccionadas anteriormente, pero
+                    esta vez sin imagen ni representación de color.
+                    </p>
+                    <p>
+                        Aparecen tres botones para
+                     seleccionar la opción del género. Una vez pulsada se te indicara si es correcta mostrando el color del género y la imagen
+                        , así con todas las palabras.
+                    </p>
+                    <p>
+                        Una vez terminado el Examen podrás repetirlo o iniciar una lista de palabras para entrenar.
+                    </p>
+
+                    <hr>
+                    <p><i class="fas fa-brain text-gradient"></i>
+                        <span class="fw-bolder text-gradient">Voka</span> se encuentra  en la versión <b>v.1.0 Beta</b>.
+                    </p>
+                    <p>
+                        Esto quiere decir que esta en fase de pruebas y la aplicación ira ampliando mejoras en las próximas versiones.
+                    </p>
+                    <p>
+                        Algunas de las mejoras previstas previstas serán:
+                    </p>
+                    <ul>
+                        <li class="mb-2"><span class="fw-bolder text-gradient">Sistema de usuarios</span>.
+                            <span class="text-muted">Para almacenar las palabras que ya vas aprendiendo,
+                                así evitaremos repetir palabras que ya conozcas.</span>
+                        </li>
+
+                        <li class="mb-2"><span class="fw-bolder text-gradient">Repasos</span>.
+                            <span class="text-muted">Posibilidad de repasara las palabras ya aprendidas anteriormente.</span></li>
+
+                        <li class="mb-2"><span class="fw-bolder text-gradient">Entrenamiento selectivo</span>.
+                            <span class="text-muted">Poder seleccionar las
+                                palabras para el entrenamiento, para que no sea solamente al azar.</span></li>
+                    </ul>
+
+                </div>
+
+            </div>
+    </header>
+{% endblock %}

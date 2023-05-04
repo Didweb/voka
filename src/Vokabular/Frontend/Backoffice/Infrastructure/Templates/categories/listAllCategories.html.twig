@@ -1,0 +1,45 @@
+{% extends '@frontend_office/base-admin.html.twig' %}
+
+
+
+{% block body %}
+
+    <!-- Modal -->
+    {% include '@frontend_office/categories/deleteModal.html.twig' %}
+
+    <!-- Modal -->
+    {% include '@frontend_office/categories/editModal.html.twig' with { 'fromEdit': formEdit  } %}
+
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Create At</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {%  for category in allCategories.allCategories()['data'] %}
+
+            <tr>
+            <td>{{ category['name'] }}</td>
+            <td>{{ category['createdAt']['date']|format_datetime('short', 'none', locale='de') }}</td>
+            <td>
+                <button data-path="{{ url('frontend.backoffice.deleteCategory', {'id': category['id']}) }}"
+                        data-name="{{ category['name'] }}" data-toggle="modal" data-target="#modalDelete" class="btn btn-danger modaldel">Delete</button>
+                <button  data-toggle="modal" data-target="#modalEdit"
+                         class="btn btn-primary  float-right modaledi"
+                         data-id="{{ category['id'] }}"
+                         data-createdat="{{ category['createdAt']['date'] }}"
+                         data-name="{{ category['name'] }}" >Edit</button>
+            </td>
+        </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+{% endblock %}

@@ -1,0 +1,87 @@
+services:
+  frontoffice.controller.index:
+    class: App\Vokabular\Frontend\Frontoffice\Infrastructure\Ui\Http\Controller\Others\IndexController
+    public: true
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+  frontoffice.controller.whatIsThis:
+    class: App\Vokabular\Frontend\Frontoffice\Infrastructure\Ui\Http\Controller\Others\WhatIsThisController
+    public: true
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+  frontoffice.controller.howWork:
+    class: App\Vokabular\Frontend\Frontoffice\Infrastructure\Ui\Http\Controller\Others\HowWorkController
+    public: true
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+  frontoffice.controller.uns:
+    class: App\Vokabular\Frontend\Frontoffice\Infrastructure\Ui\Http\Controller\Others\UnsController
+    public: true
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+  frontoffice.controller.setup:
+    class: App\Vokabular\Frontend\Frontoffice\Infrastructure\Ui\Http\Controller\SetUp\SetUpController
+    public: true
+    arguments:
+      - '@frontend.share.query.queryBus'
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+
+  frontoffice.controller.nextWord:
+    class: App\Vokabular\Frontend\Frontoffice\Infrastructure\Ui\Http\Controller\Training\NextWordController
+    public: true
+    arguments:
+      - '@frontend.share.query.queryBus'
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+
+  frontoffice.controller.startQuiz:
+    class: App\Vokabular\Frontend\Frontoffice\Infrastructure\Ui\Http\Controller\Quiz\StartQuizController
+    public: true
+    arguments:
+      - '@frontend.share.query.queryBus'
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+
+  frontoffice.controller.checkOptionQuiz:
+    class: App\Vokabular\Frontend\Frontoffice\Infrastructure\Ui\Http\Controller\Quiz\CheckOptionQuizController
+    public: true
+    arguments:
+      - '@frontend.share.query.queryBus'
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+
+  frontoffice.controller.nextWordQuiz:
+    class: App\Vokabular\Frontend\Frontoffice\Infrastructure\Ui\Http\Controller\Quiz\NextWordQuizController
+    public: true
+    arguments:
+      - '@frontend.share.query.queryBus'
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+
+  frontoffice.controller.startTrainingFromQuiz:
+    class: App\Vokabular\Frontend\Frontoffice\Infrastructure\Ui\Http\Controller\Training\StartTrainingFromQuizController
+    public: true
+    arguments:
+      - '@frontend.share.query.queryBus'
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]

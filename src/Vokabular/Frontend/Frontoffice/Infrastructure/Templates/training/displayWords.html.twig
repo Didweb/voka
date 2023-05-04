@@ -1,0 +1,50 @@
+
+{%  set words = goal['wordCollection'] %}
+{%  set setup = goal['setup'] %}
+{%  set routing = goal['route'] %}
+{%  set currentWord = routing['currentWord'] %}
+{%  set gender = words[currentWord]['gender'] %}
+{%  set word = words[currentWord]['word'] %}
+{%  set image = words[currentWord]['image'] %}
+
+{% set wordCollectionJson = words|json_encode %}
+{% set setUpJson = setup|json_encode %}
+{% set routingJson = routing|json_encode %}
+{% set goalJson =  {
+            wordCollectionJson,
+            setUpJson,
+            routingJson
+            }
+%}
+
+<div class="container px-2 my-2  ">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bolder mb-0">
+            <span class="d-inline text-{{ gender }}">{{ gender }} {{ word }}</span>
+        </h1>
+        <div class="justify-content-end float-end">
+            <button class="rounded-circle mt-3  btn
+                    text-{{ gender }}"
+                    onclick="nextWord( {{ goalJson|json_encode }}, '{{ path('frontend.frontoffice.nextWord') }}')">
+                <h1><i class="bi bi-plus-circle-fill"></i></h1>
+            </button>
+        </div>
+    </div>
+    <div class="row gx-5 justify-content-center rounded-4 bgvoka-{{ gender }} min-max-box-hight">
+        <div class="col-lg-8 col-xl-6 bg-light p-3  bgvoka-{{ gender }}">
+            <div class="mb-4 mb-lg-0  text-center">
+                <img class="rounded-3 image-training min-max-image-hight"
+                     src="{{ asset('assets/front/images/'~ image) }}">
+            </div>
+        </div>
+    </div>
+
+    <div class="justify-content-start float-start mt-3
+                    text-{{ gender }}">
+        {{ routing['loop'] }} von {{ goal['wordCollection']|length }} Wörten
+    </div>
+    <div class="justify-content-end float-end p-2">
+        <button class="btn btn-light btn-secondary-voka"
+                onclick="startQuiz( {{ goalJson|json_encode }}, '{{ path('frontend.frontoffice.startQuiz') }}')">zum Quiz</button>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+## FrontOffice
+
+frontend.frontoffice.index:
+  path: /
+  controller: 'frontoffice.controller.index'
+
+frontend.frontoffice.whatIsThis:
+  path: /what-is-this
+  controller: 'frontoffice.controller.whatIsThis'
+
+frontend.frontoffice.howWork:
+  path: /how-work
+  controller: 'frontoffice.controller.howWork'
+
+frontend.frontoffice.uns:
+  path: /uns
+  controller: 'frontoffice.controller.uns'
+
+frontend.frontoffice.setup:
+  path: /setup
+  controller: 'frontoffice.controller.setup'
+
+frontend.frontoffice.nextWord:
+  path: /next-word
+  controller: 'frontoffice.controller.nextWord'
+
+frontend.frontoffice.startQuiz:
+  path: /start-quiz
+  controller: 'frontoffice.controller.startQuiz'
+
+frontend.frontoffice.checkOptionQuiz:
+  path: /check-option-quiz
+  controller: 'frontoffice.controller.checkOptionQuiz'
+
+frontend.frontoffice.nextWordQuiz:
+  path: /next-word-quiz
+  controller: 'frontoffice.controller.nextWordQuiz'
+
+frontend.frontoffice.startTrainingFromQuiz:
+  path: /training-from-quiz
+  controller: 'frontoffice.controller.startTrainingFromQuiz'

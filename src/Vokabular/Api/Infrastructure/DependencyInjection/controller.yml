@@ -1,0 +1,69 @@
+services:
+## Category
+  api.controller.categories.createCategory:
+    class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Categories\CreateCategoryController
+    arguments:
+      - '@api.command.commandBus'
+    public: true
+
+  api.controller.categories.deleteCategory:
+    class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Categories\DeleteCategoryController
+    arguments:
+      - '@api.command.commandBus'
+    public: true
+
+  api.controller.categories.editCategory:
+    class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Categories\EditCategoryController
+    arguments:
+      - '@api.command.commandBus'
+    public: true
+
+  api.controller.categories.findCategoryByName:
+    class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Categories\FindCategoryByNameController
+    arguments:
+      - '@api.query.queryBus'
+    public: true
+
+  api.controller.categories.findAllCategories:
+    class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Categories\FindAllCategoriesController
+    arguments:
+      - '@api.query.queryBus'
+    public: true
+
+## Word
+  api.controller.words.createWord:
+    class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Words\CreateWordController
+    arguments:
+      - '@api.command.commandBus'
+    public: true
+
+  api.controller.words.editWord:
+    class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Words\EditWordController
+    arguments:
+      - '@api.command.commandBus'
+    public: true
+
+  api.controller.words.changeImageWord:
+    class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Words\ChangeImageWordController
+    arguments:
+      - '@api.command.commandBus'
+    public: true
+
+  api.controller.words.deleteWord:
+    class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Words\DeleteWordController
+    arguments:
+      - '@api.command.commandBus'
+    public: true
+
+  api.controller.words.findAllWords:
+    class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Words\FindAllWordsController
+    arguments:
+      - '@api.query.queryBus'
+    public: true
+
+
+  api.controller.words.getWordsFromSetup:
+    class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Words\GetWordsFromSetupController
+    arguments:
+      - '@api.query.queryBus'
+    public: true

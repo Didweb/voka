@@ -1,0 +1,25 @@
+services:
+
+  _instanceof:
+      App\Vokabular\Api\Shared\Domain\Bus\Command\CommandHandler:
+          tags: [ 'internal.command_handler' ]
+
+      App\Vokabular\Api\Shared\Domain\Bus\Query\QueryHandler:
+          tags: [ 'internal.query_handler' ]
+
+
+  api.services.uuidIdStringGenerator:
+    class: App\Vokabular\Api\Infrastructure\Service\UuidIdStringGenerator
+
+
+  ###  Buses
+  api.command.commandBus:
+    class: App\Vokabular\Api\Shared\Infrastructure\Bus\Command\InMemoryCommandBus
+    arguments: [!tagged internal.command_handler]
+
+  api.query.queryBus:
+    class: App\Vokabular\Api\Shared\Infrastructure\Bus\Query\InMemoryQueryBus
+    arguments: [!tagged internal.query_handler]
+
+
+

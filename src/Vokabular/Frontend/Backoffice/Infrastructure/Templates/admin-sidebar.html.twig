@@ -1,0 +1,62 @@
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <a class="sidebar-brand d-flex align-items-center justify-content-center"
+       href="{{ url('frontend.backoffice.adminIndex')}}">
+        <div class="sidebar-brand-icon">
+            <i class="fas fa-brain"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Voka</div>
+    </a>
+
+
+    <hr class="sidebar-divider">
+    <!-- Heading -->
+    <div class="sidebar-heading">
+        Administración
+    </div>
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#"
+           data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <i class="fas fa-comment"></i>
+            <span>Options words</span>
+        </a>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Options:</h6>
+                <a class="collapse-item" href="{{ url('frontend.backoffice.listAllWords')}}">List All Words</a>
+                <a class="collapse-item" href="{{ url('frontend.backoffice.createWord')}}">Create Word</a>
+
+            </div>
+        </div>
+    </li>
+
+
+
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#"
+           data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-boxes"></i>
+            <span>Options categories</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Options:</h6>
+                <a class="collapse-item" href="{{ url('frontend.backoffice.listAllCategories')}}">List All Categories</a>
+                <a class="collapse-item" href="{{ url('frontend.backoffice.createCategory')}}">Create Category</a>
+
+            </div>
+        </div>
+    </li>
+
+    <hr class="sidebar-divider">
+
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ url('frontend.frontoffice.index')}}">
+            <i class="fas fa-brain"></i>
+            <span>Home Web</span></a>
+    </li>
+
+</ul>
+<!-- End of Sidebar -->

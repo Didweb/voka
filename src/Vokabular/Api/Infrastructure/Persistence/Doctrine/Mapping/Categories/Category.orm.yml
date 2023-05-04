@@ -1,0 +1,19 @@
+App\Vokabular\Api\Domain\Model\Categories\Category:
+  type: entity
+  table: category
+  indexes:
+    name_index:
+      columns: [ name ]
+  id:
+    id:
+      type: category_id
+
+  fields:
+    name: { type: string, nullable: false, length: 90, unique: true }
+    createdAt: { type: datetime, nullable: false }
+    updatedAt: { type: datetime, nullable: true }
+
+  oneToMany:
+    words:
+      targetEntity: App\Vokabular\Api\Domain\Model\Words\Word
+      mappedBy: category

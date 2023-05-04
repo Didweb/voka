@@ -1,0 +1,35 @@
+{% extends '@frontend_front/base.html.twig' %}
+{% block title %}Voka - Visueller Wortschatztrainer - Vokabeltrainer deutsch{% endblock %}
+{% block body %}
+<header class="py-5">
+    <div class="container px-5 pb-5">
+        <div class="row gx-5">
+            <div class="col-xxl-6">
+                <!-- Header text content-->
+                <div class="text-center text-xxl-start">
+                    <div class="badge bg-gradient-primary-to-secondary text-white mb-4">
+                        <div class="text-uppercase">Deutsch &middot; Trainer &middot; Vokabular</div></div>
+                    <div class="fs-3 fw-light text-muted">Vokabeltrainer deutsch</div>
+                    <h1 class="display-3 fw-bolder mb-5">
+                        <span class="text-gradient d-inline">Visueller Wortschatztrainer</span></h1>
+
+                </div>
+            </div>
+            <div class="col-xxl-6">
+                <div class="fs-3 fw-light text-muted">Wählen Sie Ihre Ausbildung aus...</div>
+                {{ form_start(form, {'action': url('frontend.frontoffice.setup'), 'method': 'POST' }) }}
+                {{ form_widget(form) }}
+                <div class="text-center text-xxl-start">
+                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3 mt-5">
+                    <button type="submit" onclick="onClickSetUp('TRAINING')" class="btn btn-success btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" >zum Lernen</button>
+                    <button type="submit" onclick="onClickSetUp('QUIZ')" class="btn btn-outline-success btn-lg px-5 py-3 fs-6 fw-bolder" >zum Quiz</button>
+                </div>
+                </div>
+                {{ form_end(form) }}
+            </div>
+
+    </div>
+</header>
+{% endblock %}
+
+

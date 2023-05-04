@@ -1,0 +1,56 @@
+## Category
+api.createCategory:
+  path: /create/category
+  controller: 'api.controller.categories.createCategory'
+  methods: [POST]
+
+api.findCategoryByName:
+  path: /find-by-name/category
+  controller: 'api.controller.categories.findCategoryByName'
+  methods: [GET]
+
+api.findAllCategories:
+  path: /find-all/categories
+  controller: 'api.controller.categories.findAllCategories'
+  methods: [GET]
+
+api.deleteCategory:
+  path: /delete/category
+  controller: 'api.controller.categories.deleteCategory'
+  methods: [DELETE]
+
+api.editCategory:
+  path: /edit/category
+  controller: 'api.controller.categories.editCategory'
+  methods: [PUT]
+
+## Word
+api.createWord:
+  path: /create/word
+  controller: 'api.controller.words.createWord'
+  methods: [POST]
+
+api.editWord:
+  path: /edit/word
+  controller: 'api.controller.words.editWord'
+  methods: [PUT]
+
+api.changeImageWord:
+  path: /change-image/word
+  controller: 'api.controller.words.changeImageWord'
+  methods: [PUT]
+
+api.findAllWords:
+  path: /find-all/words
+  controller: 'api.controller.words.findAllWords'
+  methods: [GET]
+
+api.deleteWord:
+  path: /delete/word
+  controller: 'api.controller.words.deleteWord'
+  methods: [DELETE]
+
+api.getWordsFromSetup:
+  path: /words-from-setup
+  controller: 'api.controller.words.getWordsFromSetup'
+  methods: [GET]

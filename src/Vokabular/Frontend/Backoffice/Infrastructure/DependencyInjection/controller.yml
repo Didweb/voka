@@ -1,0 +1,96 @@
+services:
+  backoffice.controller.categories.createCategory:
+    class: App\Vokabular\Frontend\Backoffice\Infrastructure\Ui\Http\Controller\Categories\CreateCategoryController
+    public: true
+    arguments:
+      - '@frontend.share.command.commandBus'
+      - '@frontend.share.query.queryBus'
+      - '@frontend.MessageGenerator'
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+  backoffice.controller.categories.deleteCategory:
+    class: App\Vokabular\Frontend\Backoffice\Infrastructure\Ui\Http\Controller\Categories\DeleteCategoryController
+    public: true
+    arguments:
+      - '@frontend.share.command.commandBus'
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+  backoffice.controller.categories.editCategory:
+    class: App\Vokabular\Frontend\Backoffice\Infrastructure\Ui\Http\Controller\Categories\EditCategoryController
+    public: true
+    arguments:
+      - '@frontend.share.command.commandBus'
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+  backoffice.controller.categories.listAllCategories:
+    class: App\Vokabular\Frontend\Backoffice\Infrastructure\Ui\Http\Controller\Categories\ListAllCategoriesController
+    public: true
+    arguments:
+      - '@frontend.share.query.queryBus'
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+  backoffice.controller.adminIndex:
+    class: App\Vokabular\Frontend\Backoffice\Infrastructure\Ui\Http\Controller\AdminIndexController
+    public: true
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+## Word
+  backoffice.controller.words.createWord:
+    class: App\Vokabular\Frontend\Backoffice\Infrastructure\Ui\Http\Controller\Words\CreateWordController
+    public: true
+    arguments:
+      - '@frontend.share.command.commandBus'
+      - '%path.public.images%'
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+  backoffice.controller.words.listAllWords:
+    class: App\Vokabular\Frontend\Backoffice\Infrastructure\Ui\Http\Controller\Words\ListAllWordsController
+    public: true
+    arguments:
+      - '@frontend.share.query.queryBus'
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+
+  backoffice.controller.words.editWord:
+    class: App\Vokabular\Frontend\Backoffice\Infrastructure\Ui\Http\Controller\Words\EditWordController
+    public: true
+    arguments:
+      - '@frontend.share.command.commandBus'
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+
+  backoffice.controller.words.changeImageWord:
+    class: App\Vokabular\Frontend\Backoffice\Infrastructure\Ui\Http\Controller\Words\ChangeImageWordController
+    public: true
+    arguments:
+      - '@frontend.share.command.commandBus'
+      - '%path.public.images%'
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]
+
+  backoffice.controller.words.deleteWord:
+    class: App\Vokabular\Frontend\Backoffice\Infrastructure\Ui\Http\Controller\Words\DeleteWordController
+    public: true
+    arguments:
+      - '@frontend.share.command.commandBus'
+      - '%path.public.images%'
+    calls:
+      - method: setContainer
+        arguments: [ '@service_container' ]

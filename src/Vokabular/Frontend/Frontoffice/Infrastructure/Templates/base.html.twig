@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Did-web.com - Eduard Pinuaga Linares">
+    <title>{% block title %}Admin de Vokabular{% endblock %}</title>
+
+    {% include '@frontend_front/icons.html.twig' %}
+
+    {% block stylesheets %}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+        <link href="{{ asset('assets/admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/front/css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ asset('assets/front/css/front.css') }}" rel="stylesheet" />
+    {% endblock %}
+
+</head>
+<body  class="d-flex flex-column h-100">
+<main class="flex-shrink-0">
+    {% include '@frontend_front/top-nav.html.twig' %}
+    {% block body %}{% endblock %}
+</main>
+    {% include '@frontend_front/footer.html.twig' %}
+
+    {% block javascripts %}
+        <script src="{{ asset('assets/admin/vendor/jquery/jquery.min.js')}}"></script>
+        <script src="{{ asset('assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="{{ asset('assets/front/js/scripts.js')}}"></script>
+    {% endblock %}
+
+</body>
+</html>

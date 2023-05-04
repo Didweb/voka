@@ -1,0 +1,97 @@
+.text-der {
+  color: #2C7FFC !important;
+}
+
+.text-die {
+  color: #D90C0C !important;
+}
+
+.text-das {
+  color: #0FB61B !important;
+}
+
+
+
+.bgvoka-der {
+  background-color: #2C7FFC !important;
+}
+
+.bgvoka-die {
+  background-color: #D90C0C !important;
+}
+
+.bgvoka-das {
+  background-color: #0FB61B !important;
+}
+
+.border-der {
+  border: solid 15px #2C7FFC !important;
+}
+
+.border-die {
+  border: solid 15px #D90C0C !important;
+}
+
+.border-das {
+  border: solid 15px #0FB61B !important;
+}
+
+.border-small-der {
+  border: solid 2px #2C7FFC !important;
+}
+
+.border-small-die {
+  border: solid 2px #D90C0C !important;
+}
+
+.border-small-das {
+  border: solid 2px #0FB61B !important;
+}
+
+
+.score-position {
+  text-align: left !important;
+}
+
+.min-max-box-hight {
+  max-height: 350px !important;
+  min-height: 350px !important;
+}
+
+.min-max-image-hight {
+  max-height: 300px !important;
+  min-height: 300px !important;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .min-max-image-hight {
+    max-height: 200px !important;
+    min-height: 200px !important;
+  }
+
+}
+
+@media only screen and (max-width: 280px) {
+
+  .min-max-image-hight {
+    max-height: 100px !important;
+    min-height: 100px !important;
+  }
+
+}
+
+.btn-secondary-voka {
+  background-color: #e1e1e1 !important;
+}
+
+.bg-gradient-primary-to-secondary {
+  background: #1e30f3;
+  background: linear-gradient(135deg, #7a82d5 0%, #c06c6c 100%);
+}
+
+.text-gradient {
+  background: -webkit-linear-gradient(315deg, #7a82d5 0%, #c06c6c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

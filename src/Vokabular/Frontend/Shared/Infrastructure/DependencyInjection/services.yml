@@ -1,0 +1,15 @@
+services:
+  frontend.CurlCommandConnect:
+    class: App\Vokabular\Frontend\Shared\Infrastructure\Service\CurlCommandConnect
+    arguments:
+      - '%curl.path%'
+      - '@service_container'
+
+  frontend.CurlQueryConnect:
+    class: App\Vokabular\Frontend\Shared\Infrastructure\Service\CurlQueryConnect
+    arguments:
+      - '%curl.path%'
+      - '@service_container'
+
+  frontend.MessageGenerator:
+    class: App\Vokabular\Frontend\Shared\Infrastructure\Service\MessageGenerator

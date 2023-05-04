@@ -1,0 +1,59 @@
+<div class="container px-2 my-2  ">
+    <div class="text-center mb-5" id="resultOptionQuiz">
+
+        {%  set words = goal['wordCollection'] %}
+        {%  set setup = goal['setup'] %}
+        {%  set score = goal['score'] %}
+        {%  set routing = goal['route'] %}
+        {%  set isEnd = goal['route']['isEnd'] %}
+        {%  set currentWord = routing['currentWord'] %}
+        {%  set gender = words[currentWord]['gender'] %}
+        {%  set word = words[currentWord]['word'] %}
+        {%  set image = words[currentWord]['image'] %}
+
+        {% set wordCollectionJson = words|json_encode %}
+        {% set setUpJson = setup|json_encode %}
+        {% set scoreJson = score|json_encode %}
+        {% set routingJson = routing|json_encode %}
+        {% set goalJson =  {
+            wordCollectionJson,
+            setUpJson,
+            routingJson,
+            scoreJson
+            }
+        %}
+        {% include '@frontend_front/quiz/score.html.twig' %}
+        <h1 class="display-5 fw-bolder mb-0">
+                <span class="d-inline text-muted">{{ word }}</span>
+        </h1>
+
+        <div>
+            <span id="dataGoal" data-goal="{{ goalJson|json_encode }}"
+                    data-path="{{ path('frontend.frontoffice.checkOptionQuiz') }}"></span>
+            <button class="btn btn-light optionsQuiz"
+                    data-option="der" data-wordposition="{{ currentWord }}">der</button>
+            <button class="btn btn-light optionsQuiz"
+                    data-option="die" data-wordposition="{{ currentWord }}">die</button>
+            <button class="btn btn-light optionsQuiz"
+                    data-option="das" data-wordposition="{{ currentWord }}">das</button>
+        </div>
+        <div id="resultOptionQuiz">
+            {% if (isEnd) %}
+                <p>Du hast das Quiz beendet!!! Sie haben <b  class="text-success">{{ score['hits']}}</b> richtige Antworten und <b  class="text-danger">{{ score['failure'] }}</b> Fehler.</p>
+                <button onclick="startAgainQuiz( {{ goalJson|json_encode }}, '{{ path('frontend.frontoffice.startQuiz') }}')"
+                        class="btn btn-primary">Wiederholen Sie das Quiz</button>
+                <a href="{{ url('frontend.frontoffice.index') }}" class="btn btn-success ml-3">Gehen Sie zum Starten</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="justify-content-start float-start mt-3">
+        {{ routing.loop }} von {{ words|length }} Wörten
+    </div>
+    <div class="justify-content-end float-end">
+        <button class="btn btn-light btn-secondary-voka "
+                onclick="toTraining( {{ goalJson|json_encode }}, '{{ path('frontend.frontoffice.startTrainingFromQuiz') }}')">
+            Überprüfung gehen</button>
+    </div>
+</div>
+<script src="{{ asset('assets/front/js/scripts.js')}}"></script>

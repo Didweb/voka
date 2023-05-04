@@ -1,0 +1,4 @@
+parameters:
+  curl.path: '%env(PATH_TO_API)%'
+
+  path.public.images: '%kernel.project_dir%/public/assets/front/images/'

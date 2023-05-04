@@ -1,0 +1,55 @@
+<nav aria-label="...">
+    <ul class="pagination">
+        {% if  pagination['page'] <= 1 %}
+            {%  set statusPrevious = 'disabled' %}
+        {% else %}
+            {%  set statusPrevious = '' %}
+        {% endif %}
+        <li class="page-item {{ statusPrevious }}">
+            <a class="page-link" href="{{ pathNextPage }}?page={{ pagination['page'] - 1}}" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        {% set trackInit = pagination['page'] - 3 %}
+        {% set trackEnd = pagination['page'] + 3 %}
+
+        {% if  trackInit > 1 %}
+            <li class="page-item">
+                <a class="page-link" href="{{ pathNextPage }}?page=1">...</a>
+            </li>
+        {% endif %}
+
+        {% if  trackEnd > pagination['totalPages'] %}
+            {%  set trackEnd = pagination['totalPages'] %}
+        {% endif %}
+
+        {% if  trackInit < 1 %}
+            {%  set trackInit = 1 %}
+        {% endif %}
+
+        {% for i in trackInit..trackEnd %}
+
+                {% if i == pagination['page'] %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="{{ pathNextPage }}?page={{ i }}">{{ i  }}</a>
+                    </li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="{{ pathNextPage }}?page={{ i }}">{{ i  }}</a></li>
+                {% endif %}
+
+        {% endfor %}
+        {% if  trackEnd < pagination['totalPages'] %}
+            <li class="page-item">
+                <a class="page-link" href="{{ pathNextPage }}?page={{ pagination['totalPages'] }}">...</a>
+            </li>
+        {% endif %}
+
+        {% if  pagination['page'] >= pagination['totalPages'] %}
+            {%  set statusNext = 'disabled' %}
+        {% else %}
+            {%  set statusNext = '' %}
+        {% endif %}
+        <li class="page-item {{ statusNext }}">
+
+            <a class="page-link" href="{{ pathNextPage }}?page={{ pagination['page'] + 1}}">Next</a>
+        </li>
+    </ul>
+</nav>

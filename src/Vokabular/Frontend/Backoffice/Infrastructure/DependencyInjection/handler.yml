@@ -1,0 +1,66 @@
+services:
+## category
+  frontend.command.categories.createCategoryHandler:
+    class: App\Vokabular\Frontend\Backoffice\Application\Command\Categories\CreateCategoryCommandHandler
+    arguments:
+      - '@frontend.CurlCommandConnect'
+    tags: { name: internal.command_handler, bus: command.bus }
+
+  frontend.command.categories.deleteCategoryHandler:
+    class: App\Vokabular\Frontend\Backoffice\Application\Command\Categories\DeleteCategoryCommandHandler
+    arguments:
+      - '@frontend.CurlCommandConnect'
+    tags: { name: internal.command_handler, bus: command.bus }
+
+  frontend.command.categories.editCategoryHandler:
+    class: App\Vokabular\Frontend\Backoffice\Application\Command\Categories\EditCategoryCommandHandler
+    arguments:
+      - '@frontend.CurlCommandConnect'
+    tags: { name: internal.command_handler, bus: command.bus }
+
+
+  frontend.query.category.findCategoryByName:
+    class: App\Vokabular\Frontend\Backoffice\Application\Query\Categories\FindCategoryByName
+    arguments:
+      - '@frontend.CurlQueryConnect'
+    tags: { name: internal.query_handler, bus: command.bus }
+
+
+  frontend.query.category.listAllCategories:
+    class: App\Vokabular\Frontend\Backoffice\Application\Query\Categories\ListAllCategories
+    arguments:
+      - '@frontend.CurlQueryConnect'
+    tags: { name: internal.query_handler, bus: command.bus }
+
+## word
+  frontend.command.words.createWordHandler:
+    class: App\Vokabular\Frontend\Backoffice\Application\Command\Words\CreateWordCommandHandler
+    arguments:
+      - '@frontend.CurlCommandConnect'
+    tags: { name: internal.command_handler, bus: command.bus }
+
+  frontend.command.word.editWordHandler:
+    class: App\Vokabular\Frontend\Backoffice\Application\Command\Words\EditWordCommandHandler
+    arguments:
+      - '@frontend.CurlCommandConnect'
+    tags: { name: internal.command_handler, bus: command.bus }
+
+  frontend.command.words.deleteWordHandler:
+    class: App\Vokabular\Frontend\Backoffice\Application\Command\Words\DeleteWordCommandHandler
+    arguments:
+      - '@frontend.CurlCommandConnect'
+      - '%path.public.images%'
+    tags: { name: internal.command_handler, bus: command.bus }
+
+
+  frontend.command.words.changeImageWordHandler:
+    class: App\Vokabular\Frontend\Backoffice\Application\Command\Words\ChangeImageWordCommandHandler
+    arguments:
+      - '@frontend.CurlCommandConnect'
+    tags: { name: internal.command_handler, bus: command.bus }
+
+  frontend.query.words.listAllWords:
+    class: App\Vokabular\Frontend\Backoffice\Application\Query\Words\ListAllWords
+    arguments:
+      - '@frontend.CurlQueryConnect'
+    tags: { name: internal.query_handler, bus: command.bus }

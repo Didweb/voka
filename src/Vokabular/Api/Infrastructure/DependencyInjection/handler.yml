@@ -1,0 +1,72 @@
+services:
+  ## Category
+  api.command.categories.createCategoryHandler:
+    class: App\Vokabular\Api\Application\Command\Categories\CreateCategoryCommandHandler
+    arguments:
+      - '@api.repository.doctrineCategoryRepository'
+      - '@api.services.uuidIdStringGenerator'
+    tags: { name: internal.command_handler, bus: command.bus }
+
+  api.command.categories.deleteCategoryHandler:
+    class: App\Vokabular\Api\Application\Command\Categories\DeleteCategoryCommandHandler
+    arguments:
+      - '@api.repository.doctrineCategoryRepository'
+    tags: { name: internal.command_handler, bus: command.bus }
+
+  api.command.categories.editCategoryHandler:
+    class: App\Vokabular\Api\Application\Command\Categories\EditCategoryCommandHandler
+    arguments:
+      - '@api.repository.doctrineCategoryRepository'
+    tags: { name: internal.command_handler, bus: command.bus }
+
+  api.query.category.findCategoryByName:
+    class: App\Vokabular\Api\Application\Query\Categories\FindCategoryByName
+    arguments:
+      - '@api.repository.doctrineCategoryRepository'
+    tags: { name: internal.query_handler, bus: command.bus }
+
+  api.query.category.findAllCategories:
+    class: App\Vokabular\Api\Application\Query\Categories\FindAllCategories
+    arguments:
+      - '@api.repository.doctrineCategoryRepository'
+    tags: { name: internal.query_handler, bus: command.bus }
+
+
+  ## Word
+  api.command.words.createWordHandler:
+    class: App\Vokabular\Api\Application\Command\Words\CreateWordCommandHandler
+    arguments:
+      - '@api.repository.doctrineWordRepository'
+      - '@api.services.uuidIdStringGenerator'
+    tags: { name: internal.command_handler, bus: command.bus }
+
+  api.command.words.editWordHandler:
+    class: App\Vokabular\Api\Application\Command\Words\EditWordCommandHandler
+    arguments:
+      - '@api.repository.doctrineWordRepository'
+    tags: { name: internal.command_handler, bus: command.bus }
+
+  api.command.words.changeImageWordHandler:
+    class: App\Vokabular\Api\Application\Command\Words\ChangeImageWordCommandHandler
+    arguments:
+      - '@api.repository.doctrineWordRepository'
+    tags: { name: internal.command_handler, bus: command.bus }
+
+  api.command.words.deleteWordHandler:
+    class: App\Vokabular\Api\Application\Command\Words\DeleteWordCommandHandler
+    arguments:
+      - '@api.repository.doctrineWordRepository'
+    tags: { name: internal.command_handler, bus: command.bus }
+
+  api.query.words.findAllWords:
+    class: App\Vokabular\Api\Application\Query\Words\FindAllWords
+    arguments:
+      - '@api.repository.doctrineWordRepository'
+    tags: { name: internal.query_handler, bus: command.bus }
+
+
+  api.query.words.getWordsFromSetup:
+    class: App\Vokabular\Api\Application\Query\Words\GetWordsFromSetup
+    arguments:
+      - '@api.repository.doctrineWordRepository'
+    tags: { name: internal.query_handler, bus: command.bus }
