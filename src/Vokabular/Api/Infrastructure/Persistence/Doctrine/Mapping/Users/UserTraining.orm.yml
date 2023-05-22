@@ -1,0 +1,23 @@
+App\Vokabular\Api\Domain\Model\Users\UserTraining:
+    type: entity
+    table: user_training
+    indexes:
+      user_trianing_index:
+        columns: [ id ]
+
+    id:
+      id:
+        type: user_training_id
+
+    fields:
+      hits: { type: integer}
+      failures: { type: integer}
+      overcome: { type: boolean}
+
+    manyToOne:
+      user:
+        targetEntity: App\Vokabular\Api\Domain\Model\Users\User
+        inversedBy: user_training
+        joinColumn:
+          name: user_id
+          referencedColumn: id

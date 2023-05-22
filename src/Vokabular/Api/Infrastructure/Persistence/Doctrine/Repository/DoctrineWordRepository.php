@@ -193,4 +193,32 @@ class DoctrineWordRepository implements WordRepository
 
         return $this->getWordCollectionResponse($wordsFind);
     }
+
+    public function findStatsBackoffice(): array
+    {
+        $queryCountDer = $this->repository->createQueryBuilder('w')
+            ->select('count(w.word) as total_der')
+            ->where('w.gender = :der')
+            ->setParameter('der','der')
+            ->getQuery()->execute();
+
+        $queryCountDie = $this->repository->createQueryBuilder('w')
+            ->select('count(w.word) as total_die')
+            ->where('w.gender = :die')
+            ->setParameter('die','die')
+            ->getQuery()->execute();
+
+        $queryCountDas = $this->repository->createQueryBuilder('w')
+            ->select('count(w.word) as total_das')
+            ->where('w.gender = :das')
+            ->setParameter('das','das')
+            ->getQuery()->execute();
+
+
+        return [
+            'total_der'=> $queryCountDer[0]['total_der'],
+            'total_die'=> $queryCountDie[0]['total_die'],
+            'total_das'=> $queryCountDas[0]['total_das']
+        ];
+    }
 }

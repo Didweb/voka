@@ -11,7 +11,8 @@ doctrine:
             word_id: App\Vokabular\Api\Infrastructure\Persistence\Doctrine\Type\WordIdType
             gender: App\Vokabular\Api\Infrastructure\Persistence\Doctrine\Type\GenderType
             level: App\Vokabular\Api\Infrastructure\Persistence\Doctrine\Type\LevelType
-
+            user_id: App\Vokabular\Api\Infrastructure\Persistence\Doctrine\Type\UserIdType
+            user_training_id: App\Vokabular\Api\Infrastructure\Persistence\Doctrine\Type\UserTrainingIdType
     orm:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
@@ -31,7 +32,19 @@ doctrine:
                 prefix: 'App\Vokabular\Api\Domain\Model\Words'
                 alias: word
 
+            user:
+                mapping: true
+                type: yml
+                dir: '%kernel.project_dir%/src/Vokabular/Api/Infrastructure/Persistence/Doctrine/Mapping/Users'
+                prefix: 'App\Vokabular\Api\Domain\Model\Users'
+                alias: user
 
+            user_training:
+                mapping: true
+                type: yml
+                dir: '%kernel.project_dir%/src/Vokabular/Api/Infrastructure/Persistence/Doctrine/Mapping/Users'
+                prefix: 'App\Vokabular\Api\Domain\Model\Users'
+                alias: user_training
 #when@test:
 #    doctrine:
 #        dbal:

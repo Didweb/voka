@@ -70,3 +70,9 @@ services:
     arguments:
       - '@api.repository.doctrineWordRepository'
     tags: { name: internal.query_handler, bus: command.bus }
+
+  api.query.words.statsBackoffice:
+    class: App\Vokabular\Api\Application\Query\Words\StatsBackoffice
+    arguments:
+      - '@api.repository.doctrineWordRepository'
+    tags: { name: internal.query_handler, bus: command.bus }

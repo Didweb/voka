@@ -61,9 +61,15 @@ services:
       - '@api.query.queryBus'
     public: true
 
-
   api.controller.words.getWordsFromSetup:
     class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Words\GetWordsFromSetupController
+    arguments:
+      - '@api.query.queryBus'
+    public: true
+
+
+  api.controller.words.statsBackoffice:
+    class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Words\StatsBackofficeController
     arguments:
       - '@api.query.queryBus'
     public: true

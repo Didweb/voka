@@ -1,0 +1,20 @@
+App\Vokabular\Api\Domain\Model\Users\User:
+    type: entity
+    table: user
+    indexes:
+      user_index:
+        columns: [ id ]
+    id:
+      id:
+        type: user_id
+
+    fields:
+      name: { type: string, nullable: false, length: 150 }
+      email: { type: string, nullable: false, length: 150 }
+      createdAt: { type: datetime, nullable: false }
+      updatedAt: { type: datetime, nullable: true }
+
+    oneToMany:
+      trianings:
+        targetEntity: App\Vokabular\Api\Domain\Model\Users\UserTraining
+        mappedBy: trianings

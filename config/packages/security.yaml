@@ -1,5 +1,9 @@
 security:
   providers:
+      app_user_provider:
+        entity:
+          class: App\Vokabular\Api\Domain\Model\Users\User
+          property: email
       in_memory:
           memory:
             users:
@@ -17,7 +21,8 @@ security:
 
       default:
           anonymous: ~
-          http_basic: ~
+          http_basic:
+            provider: in_memory
           logout:
             path: /logout
             target: /

@@ -54,3 +54,8 @@ api.getWordsFromSetup:
   path: /words-from-setup
   controller: 'api.controller.words.getWordsFromSetup'
   methods: [GET]
+
+api.statsBackoffice:
+  path: /stats-backoffice
+  controller: 'api.controller.words.statsBackoffice'
+  methods: [GET]

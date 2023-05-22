@@ -4,6 +4,7 @@ namespace App\Vokabular\Api\Domain\Model\Words;
 
 use App\Vokabular\Api\Application\Query\Words\GetWordsFromSetupQuery;
 use App\Vokabular\Api\Application\Response\Categories\CategoryCollectionResponse;
+use App\Vokabular\Api\Application\Response\Words\StatsBackofficeResponse;
 use App\Vokabular\Api\Application\Response\Words\WordCollectionResponse;
 use App\Vokabular\Api\Domain\Model\Categories\Category;
 use App\Vokabular\Api\Domain\Model\Words\ValueObjects\Level;
@@ -26,6 +27,8 @@ interface WordRepository
     public function findAll(Pagination $pagination): WordCollectionResponse;
 
     public function findWordsFromSetup(Setup $setUp): WordCollectionResponse;
+
+    public function findStatsBackoffice(): array;
 
 
 }
