@@ -76,3 +76,8 @@ api.deleteUser:
   path: /delete/user
   controller: 'api.controller.users.deleteUser'
   methods: [DELETE]
+
+api.editUser:
+  path: /edit/user
+  controller: 'api.controller.users.editUser'
+  methods: [PUT]

@@ -3,7 +3,6 @@
 namespace App\Vokabular\Api\Application\Command\Users;
 
 use App\Vokabular\Api\Domain\Model\Users\UserRepository;
-use App\Vokabular\Api\Domain\Service\IdStringGenerator;
 use App\Vokabular\Api\Shared\Domain\Bus\Command\CommandHandler;
 
 class DeleteUserCommandHandler implements CommandHandler

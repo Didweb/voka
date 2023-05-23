@@ -92,3 +92,10 @@ services:
     arguments:
       - '@api.command.commandBus'
     public: true
+
+
+  api.controller.users.editUser:
+    class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Users\EditUserController
+    arguments:
+      - '@api.command.commandBus'
+    public: true

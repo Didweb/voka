@@ -1,6 +1,7 @@
 <?php
 namespace App\Vokabular\Api\Infrastructure\Persistence\Doctrine\Repository;
 
+use App\Vokabular\Api\Application\Command\Users\EditUserCommand;
 use App\Vokabular\Api\Application\Response\Users\UserResponse;
 use App\Vokabular\Api\Domain\Model\Users\User;
 use App\Vokabular\Api\Domain\Model\Users\UserRepository;
@@ -50,5 +51,27 @@ class DoctrineUserRepository implements UserRepository
         }
         $this->em->remove($user[0]);
         $this->em->flush();
+    }
+
+
+    public function edit(EditUserCommand $userCommand): void
+    {
+        $user = $this->repository->findOneBy(['id' => $userCommand->id()]);
+
+        if (!$user) {
+            throw new Exception('Not Found user: '.$user->id());
+        }
+
+        $queryBuilder = $this->em->createQueryBuilder();
+        $query = $queryBuilder->update(User::class, 'u')
+            ->set('u.name', ':name')
+            ->set('u.updatedAt', ':updatedAt')
+            ->where('u.id = :id')
+            ->setParameter('name', $userCommand->name())
+            ->setParameter('updatedAt', new \DateTime())
+            ->setParameter('id', $user->id())
+            ->getQuery();
+
+        $query->execute();
     }
 }

@@ -97,3 +97,10 @@ services:
     arguments:
       - '@api.repository.doctrineUserRepository'
     tags: { name: internal.command_handler, bus: command.bus }
+
+
+  api.command.users.editUser:
+    class: App\Vokabular\Api\Application\Command\Users\EditUserCommandHandler
+    arguments:
+      - '@api.repository.doctrineUserRepository'
+    tags: { name: internal.command_handler, bus: command.bus }
