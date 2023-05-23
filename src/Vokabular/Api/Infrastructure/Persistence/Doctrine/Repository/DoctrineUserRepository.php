@@ -41,4 +41,14 @@ class DoctrineUserRepository implements UserRepository
 
         return new UserResponse($userDomain);
     }
+
+    public function delete($id): void
+    {
+        $user = $this->repository->findBy(['id' => $id]);
+        if (!$user) {
+            throw new Exception('Not Found user: '.$id);
+        }
+        $this->em->remove($user[0]);
+        $this->em->flush();
+    }
 }

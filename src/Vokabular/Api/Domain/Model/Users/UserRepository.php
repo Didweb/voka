@@ -9,4 +9,6 @@ interface UserRepository
     public function insert(User $user): void;
 
     public function findByEmail(string $email): UserResponse;
+
+    public function delete(string $id): void;
 }

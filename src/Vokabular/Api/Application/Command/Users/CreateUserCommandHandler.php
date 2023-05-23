@@ -21,7 +21,7 @@ class CreateUserCommandHandler implements CommandHandler
 
     public function __invoke(CreateUserCommand $command): void
     {
-        $collection = UserTrainingCollection::init();
+
         $user = new User(
             new UserId($this->idStringGenerator->generate()),
             $command->name(),

@@ -90,3 +90,10 @@ services:
     arguments:
       - '@api.repository.doctrineUserRepository'
     tags: { name: internal.query_handler, bus: command.bus }
+
+
+  api.command.users.deleteUser:
+    class: App\Vokabular\Api\Application\Command\Users\DeleteUserCommandHandler
+    arguments:
+      - '@api.repository.doctrineUserRepository'
+    tags: { name: internal.command_handler, bus: command.bus }

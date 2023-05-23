@@ -70,3 +70,9 @@ api.findUser:
   path: /find/user
   controller: 'api.controller.users.findUser'
   methods: [GET]
+
+
+api.deleteUser:
+  path: /delete/user
+  controller: 'api.controller.users.deleteUser'
+  methods: [DELETE]
