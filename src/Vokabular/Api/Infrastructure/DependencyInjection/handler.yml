@@ -76,3 +76,17 @@ services:
     arguments:
       - '@api.repository.doctrineWordRepository'
     tags: { name: internal.query_handler, bus: command.bus }
+
+  ## User
+  api.command.users.createUserHandler:
+    class: App\Vokabular\Api\Application\Command\Users\CreateUserCommandHandler
+    arguments:
+      - '@api.repository.doctrineUserRepository'
+      - '@api.services.uuidIdStringGenerator'
+    tags: { name: internal.command_handler, bus: command.bus }
+
+  api.command.users.getUser:
+    class: App\Vokabular\Api\Application\Query\Users\GetUser
+    arguments:
+      - '@api.repository.doctrineUserRepository'
+    tags: { name: internal.query_handler, bus: command.bus }

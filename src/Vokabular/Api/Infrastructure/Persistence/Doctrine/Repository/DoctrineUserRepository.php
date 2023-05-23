@@ -1,38 +1,44 @@
 <?php
 namespace App\Vokabular\Api\Infrastructure\Persistence\Doctrine\Repository;
 
+use App\Vokabular\Api\Application\Response\Users\UserResponse;
 use App\Vokabular\Api\Domain\Model\Users\User;
 use App\Vokabular\Api\Domain\Model\Users\UserRepository;
-use App\Vokabular\Api\Domain\Model\Users\ValueObjects\UserId;
-use App\Vokabular\Api\Domain\Model\Words\Word;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectRepository;
 use Exception;
-use Knp\Component\Pager\PaginatorInterface;
 
 class DoctrineUserRepository implements UserRepository
 {
 
     private EntityManagerInterface $em;
     private ObjectRepository $repository;
-    private PaginatorInterface $paginator;
 
-    public function __construct(EntityManagerInterface $em, PaginatorInterface $paginator)
+    public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
-        $this->repository = $em->getRepository(Word::class);
-        $this->paginator = $paginator;
+        $this->repository = $em->getRepository(User::class);
     }
 
     public function insert(User $user): void
     {
-        $wordFindByName = $this->repository->findBy(['word' => $user->email()]);
+        $wordFindByName = $this->repository->findBy(['email' => $user->email()]);
 
         if ($wordFindByName) {
-            throw new Exception('Duplicate word: '.$user->email());
+            throw new Exception('Duplicate user: '.$user->email());
         }
 
         $this->em->persist($user);
         $this->em->flush();
+    }
+
+    public function findByEmail($email): UserResponse
+    {
+
+        $user = $this->repository->findBy(['email' => $email]);
+
+        $userDomain = User::fromInfrastructure($user[0]);
+
+        return new UserResponse($userDomain);
     }
 }

@@ -67,9 +67,22 @@ services:
       - '@api.query.queryBus'
     public: true
 
-
   api.controller.words.statsBackoffice:
     class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Words\StatsBackofficeController
+    arguments:
+      - '@api.query.queryBus'
+    public: true
+
+## Users
+
+  api.controller.users.createUser:
+    class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Users\CreateUserController
+    arguments:
+      - '@api.command.commandBus'
+    public: true
+
+  api.controller.users.findUser:
+    class: App\Vokabular\Api\Infrastructure\Ui\Http\Controller\Users\FindUserController
     arguments:
       - '@api.query.queryBus'
     public: true

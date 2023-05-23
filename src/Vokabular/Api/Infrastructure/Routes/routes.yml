@@ -59,3 +59,14 @@ api.statsBackoffice:
   path: /stats-backoffice
   controller: 'api.controller.words.statsBackoffice'
   methods: [GET]
+
+## User
+api.createUser:
+  path: /create/user
+  controller: 'api.controller.users.createUser'
+  methods: [POST]
+
+api.findUser:
+  path: /find/user
+  controller: 'api.controller.users.findUser'
+  methods: [GET]

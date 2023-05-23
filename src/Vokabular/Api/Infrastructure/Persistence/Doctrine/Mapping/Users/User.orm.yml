@@ -10,11 +10,11 @@ App\Vokabular\Api\Domain\Model\Users\User:
 
     fields:
       name: { type: string, nullable: false, length: 150 }
-      email: { type: string, nullable: false, length: 150 }
+      email: { type: email, nullable: false, length: 150, unique: true  }
       createdAt: { type: datetime, nullable: false }
       updatedAt: { type: datetime, nullable: true }
 
-    oneToMany:
-      trianings:
-        targetEntity: App\Vokabular\Api\Domain\Model\Users\UserTraining
-        mappedBy: trianings
+#    oneToMany:
+#      trianings:
+#        targetEntity: App\Vokabular\Api\Domain\Model\Users\UserTraining
+#        mappedBy: trianings

@@ -13,6 +13,7 @@ doctrine:
             level: App\Vokabular\Api\Infrastructure\Persistence\Doctrine\Type\LevelType
             user_id: App\Vokabular\Api\Infrastructure\Persistence\Doctrine\Type\UserIdType
             user_training_id: App\Vokabular\Api\Infrastructure\Persistence\Doctrine\Type\UserTrainingIdType
+            email: App\Vokabular\Api\Infrastructure\Persistence\Doctrine\Type\EmailType
     orm:
         auto_generate_proxy_classes: true
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
